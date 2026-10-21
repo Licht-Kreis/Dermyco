@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dermyco | Microbiología dermatológica y cuidado de la piel en Mérida</title>
+<meta name="description" content="Dermyco: microbiología dermatológica y cuidado de la piel en Mérida, Yucatán. Contacto, ubicación y publicaciones recientes.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%231F7A72'/%3E%3Ccircle cx='12' cy='13' r='4' fill='%23F0A3A8'/%3E%3Ccircle cx='20' cy='20' r='5' fill='%23F8E3B8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F6F4;--ink:#0E2B2A;--muted:#4C6664;--teal:#1F7A72;--mint:#BFE6D8;--rose:#F0A3A8;--agar:#F8E3B8;--line:#D3E1DC;--white:#fff;
+--display:"Bricolage Grotesque",system-ui,sans-serif;--body:"Figtree",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+svg.i{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{width:min(1160px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);line-height:1.04;letter-spacing:-.02em}
+h2{font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700}
+
+/* Navegación */
+header{position:sticky;top:.75rem;z-index:20;margin-top:.75rem}
+nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem .65rem .55rem 1.1rem;background:rgb(255 255 255/.72);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px}
+.logo{font:700 1.35rem var(--display);text-decoration:none;display:flex;align-items:center;gap:.5rem;letter-spacing:-.03em}
+.logo i{width:1.1rem;height:1.1rem;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--rose) 0 28%,var(--teal) 30%)}
+nav ul{display:flex;gap:1.6rem;list-style:none;padding:0;font-weight:500;font-size:.98rem}
+nav ul a{text-decoration:none;color:var(--muted);transition:color .2s}
+nav ul a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 1.35rem;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--teal);transition:transform .2s,background .2s,color .2s}
+.btn.p{background:var(--teal);color:#fff}
+.btn.p:hover{background:#17625b;transform:translateY(-2px)}
+.btn.s{color:var(--teal)}
+.btn.s:hover{background:var(--mint)}
+nav .btn{padding:.6rem 1.1rem;font-size:.95rem}
+@media(max-width:700px){nav ul{display:none}}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;padding-block:4.5rem 5rem}
+.hero h1{font-size:clamp(2.9rem,7.2vw,5.6rem);font-weight:800;letter-spacing:-.04em}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}
+.ln span{display:block;animation:up .9s cubic-bezier(.2,.8,.2,1) both}
+.ln:nth-child(2) span{animation-delay:.12s}
+@keyframes up{from{transform:translateY(105%)}}
+.hero p{max-width:34ch;margin-top:1.5rem;font-size:1.2rem;color:var(--muted);animation:fade .8s .45s both}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem;animation:fade .8s .6s both}
+@keyframes fade{from{opacity:0}}
+.dish{position:relative;aspect-ratio:1;width:min(100%,520px);justify-self:center;border-radius:50%;
+background:radial-gradient(circle at 38% 32%,#FFF6DF,var(--agar) 55%,#EDC987);
+box-shadow:inset 0 0 0 12px rgb(255 255 255/.55),inset 0 0 50px rgb(14 43 42/.18),0 40px 80px -30px rgb(14 43 42/.45);
+animation:dish 1.4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes dish{from{transform:scale(.82) rotate(-12deg);opacity:0}}
+.dish canvas{position:absolute;inset:0;width:100%;height:100%}
+.dish::after{content:"";position:absolute;inset:6%;border-radius:50%;background:linear-gradient(135deg,rgb(255 255 255/.55),transparent 38%);pointer-events:none}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-block:2.5rem 3.5rem}.dish{width:min(82%,420px)}}
+
+/* Qué hacemos */
+.what{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line)}
+.what div{padding:2rem 1.75rem 2rem 0}
+.what div+div{padding-left:1.75rem;border-left:1px solid var(--line)}
+.what h3{font-size:1.3rem;font-weight:700;margin-bottom:.4rem}
+.what p{color:var(--muted);font-size:1rem}
+@media(max-width:760px){.what{grid-template-columns:1fr}.what div,.what div+div{padding:1.4rem 0;border-left:0}.what div+div{border-top:1px solid var(--line)}}
+
+/* Contacto */
+section{padding-block:6rem 1rem}
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:3.5rem;margin-top:2.5rem;align-items:start}
+.list{list-style:none;padding:0;border-top:1px solid var(--line)}
+.list li{border-bottom:1px solid var(--line)}
+.list a{display:flex;align-items:center;gap:1rem;padding:1.05rem .25rem;text-decoration:none;transition:padding .25s,color .2s}
+.list a:hover{padding-left:.9rem;color:var(--teal)}
+.list small{display:block;color:var(--muted);font-size:.85rem;line-height:1.2}
+.list b{font-weight:600}
+.list .i{width:1.5rem;height:1.5rem;color:var(--teal)}
+.addr{margin-top:1.6rem;color:var(--muted)}
+.addr strong{color:var(--ink);display:block}
+.map{border-radius:28px;overflow:hidden;border:1px solid var(--line);background:var(--mint);box-shadow:0 30px 60px -35px rgb(14 43 42/.5)}
+.map iframe{display:block;width:100%;height:440px;border:0}
+@media(max-width:860px){.contact{grid-template-columns:1fr;gap:2rem}.map iframe{height:340px}}
+
+/* RSS */
+.head{display:flex;justify-content:space-between;align-items:end;gap:1.5rem;flex-wrap:wrap}
+.head p{max-width:42ch;color:var(--muted)}
+.feed{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem;margin-top:2.5rem}
+.post{background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;animation:pop .6s calc(var(--n,0)*70ms) cubic-bezier(.2,.8,.2,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.97)}}
+.post[hidden]{display:none}
+.ph{display:flex;align-items:center;gap:.7rem;padding:.8rem .9rem}
+.av{width:38px;height:38px;border-radius:50%;padding:2px;background:conic-gradient(var(--rose),var(--agar),var(--teal),var(--rose));flex:none}
+.av span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:#fff;font:700 .8rem var(--display);color:var(--teal)}
+.ph b{display:block;font-size:.93rem;line-height:1.2}
+.ph small{color:var(--muted);font-size:.78rem}
+.ph .i{margin-left:auto;color:var(--muted)}
+.pic{position:relative;aspect-ratio:1;background:linear-gradient(135deg,var(--mint),var(--agar));display:block;overflow:hidden}
+.pic img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.pic:hover img{transform:scale(1.04)}
+.badge{position:absolute;top:.7rem;right:.7rem;display:flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:rgb(14 43 42/.72);color:#fff;font-size:.78rem;font-weight:600;backdrop-filter:blur(6px)}
+.badge .i{width:.95rem;height:.95rem;fill:#fff}
+.acts{display:flex;gap:.9rem;padding:.8rem .9rem .3rem}
+.acts .i:last-child{margin-left:auto}
+.pf{padding:0 .9rem .95rem;font-size:.93rem}
+.pf p{color:var(--muted);margin-bottom:.5rem}
+.pf a{color:var(--teal);font-weight:600;text-underline-offset:3px}
+.sk{height:410px;border-radius:18px;background:linear-gradient(100deg,#E3ECE8 30%,#F4F8F6 50%,#E3ECE8 70%) 0/250% 100%;animation:sh 1.3s linear infinite}
+@keyframes sh{to{background-position:-150% 0}}
+.msg{grid-column:1/-1;padding:2rem;border:1px dashed var(--teal);border-radius:18px;color:var(--muted)}
+.more{display:block;margin:2.5rem auto 0;cursor:pointer;font:600 1rem var(--body);background:none}
+footer{margin-top:6rem;padding-block:2.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.93rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="wa" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+<symbol id="ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></symbol>
+<symbol id="send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+<symbol id="mark" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></symbol>
+<symbol id="play" viewBox="0 0 24 24"><path d="M7 4v16l13-8Z"/></symbol>
+</svg>
+
+<header><div class="wrap"><nav>
+<a class="logo" href="#inicio"><i></i>Dermyco</a>
+<ul><li><a href="#inicio">Inicio</a></li><li><a href="#contacto">Contacto</a></li><li><a href="#rss">RSS</a></li></ul>
+<a class="btn p" href="https://wa.me/529991560789" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>WhatsApp</a>
+</nav></div></header>
+
+<main>
+<div class="wrap hero" id="inicio">
+<div>
+<h1><span class="ln"><span>Conoce lo que</span></span><span class="ln"><span>vive en tu piel.</span></span></h1>
+<p>Microbiología dermatológica y cuidado de la piel en Mérida, Yucatán.</p>
+<div class="cta">
+<a class="btn p" href="https://wa.me/529991560789" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>Escribir por WhatsApp</a>
+<a class="btn s" href="#contacto"><svg class="i"><use href="#pin"/></svg>Ver ubicación</a>
+</div>
+</div>
+<div class="dish" role="img" aria-label="Ilustración de una caja de Petri con colonias de microorganismos en crecimiento"><canvas id="dish"></canvas></div>
+</div>
+
+<div class="wrap what">
+<div><h3>Microbiología dermatológica</h3><p>Estudio de los microorganismos que viven en la piel.</p></div>
+<div><h3>Cuidado de la piel</h3><p>Orientación para mantener la piel sana todos los días.</p></div>
+<div><h3>Consulta presencial</h3><p>Atención en Clínica SSGG, en la colonia Pensiones.</p></div>
+</div>
+
+<section id="contacto"><div class="wrap">
+<h2>Contacto y ubicación</h2>
+<div class="contact">
+<div>
+<ul class="list">
+<li><a href="https://wa.me/529991560789" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg><span><small>WhatsApp</small><b>999 156 0789</b></span></a></li>
+<li><a href="mailto:dermyco@gmail.com"><svg class="i"><use href="#mail"/></svg><span><small>Correo</small><b>dermyco@gmail.com</b></span></a></li>
+<li><a href="https://www.instagram.com/dermyco.mid/" target="_blank" rel="noopener"><svg class="i"><use href="#ig"/></svg><span><small>Instagram de Dermyco</small><b>@dermyco.mid</b></span></a></li>
+<li><a href="https://www.instagram.com/dra.fdzr/" target="_blank" rel="noopener"><svg class="i"><use href="#ig"/></svg><span><small>Instagram de la doctora</small><b>@dra.fdzr</b></span></a></li>
+</ul>
+<p class="addr"><strong>Clínica SSGG</strong>Calle 5C #209 x 32 y 32A, Col. Pensiones, Mérida, Yucatán.</p>
+<a class="btn s" style="margin-top:1.2rem" href="https://maps.app.goo.gl/egnjhWeJDEKAFbV29" target="_blank" rel="noopener"><svg class="i"><use href="#pin"/></svg>Cómo llegar</a>
+</div>
+<div class="map"><iframe title="Mapa de Clínica SSGG en Mérida, Yucatán" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+src="https://www.google.com/maps?q=Clinica+SSGG+calle+5C+209+x+32+y+32A+Col.+Pensiones+Merida+Yucatan&amp;hl=es&amp;z=16&amp;output=embed"></iframe></div>
+</div>
+</div></section>
+
+<section id="rss"><div class="wrap">
+<div class="head"><h2>RSS</h2><p>Las publicaciones más recientes de @dra.fdzr, cargadas automáticamente desde su feed.</p></div>
+<div class="feed" id="feed" aria-live="polite"><div class="sk"></div><div class="sk"></div><div class="sk"></div></div>
+<button class="btn s more" id="more" hidden>Ver más publicaciones</button>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="y"></span> Dermyco. Mérida, Yucatán.</span><a href="mailto:dermyco@gmail.com">dermyco@gmail.com</a></div></footer>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Caja de Petri: colonias que crecen al cargar la página */
+const cv=document.getElementById('dish'),cx=cv.getContext('2d');
+const pal=['#1F7A72','#F0A3A8','#8FD0BC','#E3B35E','#C77D8C'];
+const rnd=(a,b)=>a+Math.random()*(b-a);
+let C=[],W=0,t0=0;
+(function seed(){let n=0;while(C.length<28&&n++<500){const a=rnd(0,6.283),d=Math.sqrt(Math.random())*.8,r=rnd(.03,.09),x=Math.cos(a)*d,y=Math.sin(a)*d;
+if(C.every(c=>Math.hypot(c.x-x,c.y-y)>c.r+r+.025))C.push({x,y,r,col:pal[C.length%5],delay:rnd(.5,3.4),ph:rnd(0,6.28)})}})();
+function size(){const d=devicePixelRatio||1;W=cv.clientWidth;cv.width=cv.height=W*d;cx.setTransform(d,0,0,d,0,0)}
+function draw(now){
+ const t=(now-t0)/1000,R=W/2;cx.clearRect(0,0,W,W);
+ for(const c of C){
+  const g=reduce?1:Math.min(1,Math.max(0,(t-c.delay)/2.4)),e=1-Math.pow(1-g,3);if(e<=0)continue;
+  const r=c.r*R*e*(1+.035*Math.sin(t*1.2+c.ph)*g),x=R+c.x*R,y=R+c.y*R;
+  const gr=cx.createRadialGradient(x-r*.3,y-r*.3,r*.1,x,y,r);
+  gr.addColorStop(0,'#ffffff99');gr.addColorStop(.4,c.col);gr.addColorStop(1,c.col+'cc');
+  cx.fillStyle=gr;cx.beginPath();cx.arc(x,y,r,0,7);cx.fill();
+ }
+ if(!reduce)requestAnimationFrame(draw);
+}
+size();addEventListener('resize',()=>{size();if(reduce)draw(0)});
+requestAnimationFrame(n=>{t0=n;draw(n)});
+
+/* Feed RSS de Instagram */
+const FEED='https://raw.githubusercontent.com/Licht-Kreis/AniList-RSS/refs/heads/main/Instagram%20Feeds/instagram-dra-fdzr.xml';
+const PROFILE='https://www.instagram.com/dra.fdzr/';
+const MES={January:0,February:1,March:2,April:3,May:4,June:5,July:6,August:7,September:8,October:9,November:10,December:11};
+const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+const feed=document.getElementById('feed'),more=document.getElementById('more'),SHOW=6;
+const ico=n=>`<svg class="i" aria-hidden="true"><use href="#${n}"/></svg>`;
+
+function card(p,n){
+ const date=p.date?p.date.toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'}):'';
+ const img=p.img?`<img src="${esc(p.img)}" alt="${p.video?'Video':'Foto'} publicado por ${esc(p.by)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:'';
+ return `<article class="post" style="--n:${n%SHOW}"${n>=SHOW?' hidden':''}>
+<div class="ph"><div class="av"><span>IF</span></div><div><b>dra.fdzr</b><small>${esc(p.by)}</small></div>${ico('ig')}</div>
+<a class="pic" href="${esc(p.url)}" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram">${img}${p.video?`<span class="badge">${ico('play')}Video</span>`:''}</a>
+<div class="acts">${ico('heart')}${ico('send')}${ico('mark')}</div>
+<div class="pf"><p>${p.video?'Video':'Foto'} del ${esc(date)}</p><a href="${esc(p.url)}" target="_blank" rel="noopener">Ver en Instagram</a></div>
+</article>`;
+}
+
+async function load(){
+ try{
+  const res=await fetch(FEED);if(!res.ok)throw new Error(res.status);
+  const xml=new DOMParser().parseFromString(await res.text(),'text/xml');
+  const posts=[...xml.querySelectorAll('item')].map(i=>{
+   const g=s=>i.querySelector(s)?.textContent||'';
+   const title=g('title'),link=g('link'),code=(link.match(/\/p\/([\w-]+)/)||[])[1];
+   const doc=new DOMParser().parseFromString(g('description'),'text/html');
+   const m=title.match(/^(Photo|Video) by (.+?) on (\w+) (\d+), (\d+)/);
+   return{img:doc.querySelector('img')?.getAttribute('src'),video:m?.[1]==='Video',by:m?.[2]||'Dra. Ilse Fernández R.',
+    date:m?new Date(+m[5],MES[m[3]],+m[4]):null,url:code?`https://www.instagram.com/p/${code}/`:link};
+  });
+  if(!posts.length)throw new Error('vacío');
+  feed.innerHTML=posts.map(card).join('');
+  if(posts.length>SHOW){more.hidden=false;more.onclick=()=>{feed.querySelectorAll('.post[hidden]').forEach((el,k)=>{el.style.setProperty('--n',k%6);el.hidden=false});more.hidden=true}}
+ }catch(e){
+  feed.innerHTML=`<p class="msg">No pudimos cargar las publicaciones en este momento. Puedes verlas directamente en <a href="${PROFILE}" target="_blank" rel="noopener">Instagram</a>.</p>`;
+ }
+}
+load();
+</script>
+</body>
+</html>
