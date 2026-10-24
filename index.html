@@ -171,7 +171,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <div class="wrap what">
 <div><h3>Microbiología dermatológica</h3><p>Estudio de los microorganismos que viven en la piel.</p></div>
 <div><h3>Cuidado de la piel</h3><p>Orientación para mantener la piel sana todos los días.</p></div>
-<div><h3>Consulta presencial</h3><p>Atención en Clínica SSGG, en la colonia Pensiones.</p></div>
+<div><h3>Consulta presencial</h3><p>Atención en el consultorio 207 de Metro Business Center, Col. México.</p></div>
 </div>
 
 <section id="contacto"><div class="wrap">
@@ -180,15 +180,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <div>
 <ul class="list">
 <li><a href="https://wa.me/529991560789" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg><span><small>WhatsApp</small><b>999 156 0789</b></span></a></li>
-<li><a href="mailto:dermyco@gmail.com"><svg class="i"><use href="#mail"/></svg><span><small>Correo</small><b>dermyco@gmail.com</b></span></a></li>
+<li><a href="mailto:dermyco.mid@gmail.com"><svg class="i"><use href="#mail"/></svg><span><small>Correo</small><b>dermyco.mid@gmail.com</b></span></a></li>
 <li><a href="https://www.instagram.com/dermyco.mid/" target="_blank" rel="noopener"><svg class="i"><use href="#ig"/></svg><span><small>Instagram de Dermyco</small><b>@dermyco.mid</b></span></a></li>
 <li><a href="https://www.instagram.com/dra.fdzr/" target="_blank" rel="noopener"><svg class="i"><use href="#ig"/></svg><span><small>Instagram de la doctora</small><b>@dra.fdzr</b></span></a></li>
 </ul>
-<p class="addr"><strong>Clínica SSGG</strong>Calle 5C #209 x 32 y 32A, Col. Pensiones, Mérida, Yucatán.</p>
-<a class="btn s" style="margin-top:1.2rem" href="https://www.google.com/maps/dir/?api=1&destination=20.9964406,-89.6381144" target="_blank" rel="noopener"><svg class="i"><use href="#pin"/></svg>Cómo llegar</a>
+<p class="addr"><strong>Consultorio 207, Metro Business Center</strong>Calle 26 Núm. 124, entre Av. José Díaz Bolio y Calle 23, Col. México, 97125 Mérida, Yucatán.</p>
+<a class="btn s" style="margin-top:1.2rem" href="https://www.google.com/maps/dir/?api=1&destination=Metro+Business+Center+Calle+26+124+Col.+Mexico+97125+Merida+Yucatan" target="_blank" rel="noopener"><svg class="i"><use href="#pin"/></svg>Cómo llegar</a>
 </div>
-<div class="map"><iframe title="Mapa de Clínica SSGG en Mérida, Yucatán" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
-src="https://www.google.com/maps?q=BANCO+DE+SANGRE+PENSIONES+SSGG@20.9964406,-89.6381144&amp;hl=es&amp;z=18&amp;output=embed"></iframe></div>
+<div class="map"><iframe title="Mapa de Metro Business Center en Mérida, Yucatán" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+src="https://www.google.com/maps?q=Metro+Business+Center+Calle+26+124+Col.+Mexico+97125+Merida+Yucatan&amp;hl=es&amp;z=17&amp;output=embed"></iframe></div>
 </div>
 </div></section>
 
@@ -199,7 +199,7 @@ src="https://www.google.com/maps?q=BANCO+DE+SANGRE+PENSIONES+SSGG@20.9964406,-89
 </div></section>
 </main>
 
-<footer><div class="wrap"><span>© <span id="y"></span> Dermyco. Mérida, Yucatán.</span><a href="mailto:dermyco@gmail.com">dermyco@gmail.com</a></div></footer>
+<footer><div class="wrap"><span>© <span id="y"></span> Dermyco. Mérida, Yucatán.</span><a href="mailto:dermyco.mid@gmail.com">dermyco.mid@gmail.com</a></div></footer>
 
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
@@ -215,7 +215,7 @@ const PROFILE='https://www.instagram.com/dra.fdzr/';
 const AVATAR='https://raw.githubusercontent.com/Licht-Kreis/Dermyco/refs/heads/main/Branding/DermycoIcon.png';
 const MES={January:0,February:1,March:2,April:3,May:4,June:5,July:6,August:7,September:8,October:9,November:10,December:11};
 const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
-const feed=document.getElementById('feed'),more=document.getElementById('more'),SHOW=6;
+const feed=document.getElementById('feed'),more=document.getElementById('more'),SHOW=8;
 const ico=n=>`<svg class="i" aria-hidden="true"><use href="#${n}"/></svg>`;
 
 function card(p,n){
@@ -243,7 +243,7 @@ async function load(){
   });
   if(!posts.length)throw new Error('vacío');
   feed.innerHTML=posts.map(card).join('');
-  if(posts.length>SHOW){more.hidden=false;more.onclick=()=>{feed.querySelectorAll('.post[hidden]').forEach((el,k)=>{el.style.setProperty('--n',k%6);el.hidden=false});more.hidden=true}}
+  if(posts.length>SHOW){more.hidden=false;more.onclick=()=>{feed.querySelectorAll('.post[hidden]').forEach((el,k)=>{el.style.setProperty('--n',k%8);el.hidden=false});more.hidden=true}}
  }catch(e){
   feed.innerHTML=`<p class="msg">No pudimos cargar las publicaciones en este momento. Puedes verlas directamente en <a href="${PROFILE}" target="_blank" rel="noopener">Instagram</a>.</p>`;
  }
