@@ -120,9 +120,9 @@ section{padding-block:6rem 1rem}
 .pic{position:relative;aspect-ratio:1;background:linear-gradient(135deg,var(--mint),var(--agar));display:block;overflow:hidden}
 .pic img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
 .pic:hover img{transform:scale(1.04)}
-.pic.nf{display:grid;place-items:center;background:linear-gradient(135deg,var(--mint),var(--white))}
-.pic.nf::before{content:"";width:46%;aspect-ratio:1;border-radius:50%;background:url(https://raw.githubusercontent.com/Licht-Kreis/Dermyco/refs/heads/main/Branding/DermycoIcon_Alt.png) center/cover;box-shadow:0 14px 30px -14px rgb(14 43 42/.55)}
-.pic.nf::after{content:"Ver publicación en Instagram";position:absolute;inset:auto 0 1rem;text-align:center;font-size:.85rem;font-weight:600;color:var(--ink)}
+.pic.nf,.sl.nf{display:grid;place-items:center;background:linear-gradient(135deg,var(--mint),var(--white))}
+.pic.nf::before,.sl.nf::before{content:"";width:46%;aspect-ratio:1;border-radius:50%;background:url(https://raw.githubusercontent.com/Licht-Kreis/Dermyco/refs/heads/main/Branding/DermycoIcon_Alt.png) center/cover;box-shadow:0 14px 30px -14px rgb(14 43 42/.55)}
+.pic.nf::after,.sl.nf::after{content:"Ver publicación en Instagram";position:absolute;inset:auto 0 1rem;text-align:center;font-size:.85rem;font-weight:600;color:var(--ink)}
 .badge{position:absolute;top:.7rem;right:.7rem;display:flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:rgb(14 43 42/.72);color:#fff;font-size:.78rem;font-weight:600;backdrop-filter:blur(6px)}
 .badge .i{width:.95rem;height:.95rem;fill:#fff}
 .acts{display:flex;gap:.9rem;padding:.8rem .9rem .3rem}
@@ -159,6 +159,28 @@ nav:hover::after,.btn:hover::after,.tg:hover::after,.post:hover::after,.msg:hove
 .post::after{z-index:1}
 .btn.p::after{background:radial-gradient(circle 110px at var(--mx) var(--my),rgb(255 255 255/.55),transparent 70%)}
 
+/* Carrusel, video y descripción */
+.trk{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.trk::-webkit-scrollbar{display:none}
+.sl{flex:0 0 100%;position:relative;scroll-snap-align:center;display:block;background:linear-gradient(135deg,var(--mint),var(--agar))}
+.sl img{width:100%;height:100%;object-fit:cover;display:block}
+.car:hover img,.vid:hover img{transform:none}
+.nv{position:absolute;top:50%;translate:0 -50%;width:36px;height:36px;border-radius:50%;border:1px solid rgb(255 255 255/.5);background:rgb(14 43 42/.5);color:#fff;display:grid;place-items:center;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;transition:opacity .25s}
+.pv{left:.6rem}.nx{right:.6rem}
+.car:hover .nv,.nv:focus-visible{opacity:1}
+@media(hover:none){.nv{display:none}}
+.pl{position:absolute;inset:0;display:grid;place-items:center;border:0;background:none;cursor:pointer}
+.pl i{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:rgb(255 255 255/.22);border:1px solid rgb(255 255 255/.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:transform .25s}
+.pl:hover i{transform:scale(1.1)}
+.pl .i{fill:#fff;stroke:none;width:1.6rem;height:1.6rem;margin-left:.15rem}
+.vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
+.vid.go .badge,.vid.go .pl,.vid.vf .pl{display:none}
+.vid.vf::after{content:"El video ya no está disponible aquí. Míralo en Instagram.";position:absolute;inset:auto .8rem .8rem;padding:.6rem .8rem;border-radius:12px;background:rgb(14 43 42/.85);color:#fff;font-size:.85rem;text-align:center}
+.cap{white-space:pre-line;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.cap.open{display:block}
+.cap a{color:var(--teal);text-decoration:none}
+.mr{background:none;border:0;padding:0;margin-bottom:.6rem;color:var(--muted);font:600 .85rem var(--body);cursor:pointer}
+
 /* Animaciones de entrada: todo carga primero y luego cada elemento aparece al ser visible */
 @keyframes rvin{from{opacity:0;transform:translateY(26px) scale(.98)}}
 @keyframes rvnav{from{opacity:0;transform:translateY(-22px)}}
@@ -181,6 +203,8 @@ nav:hover::after,.btn:hover::after,.tg:hover::after,.post:hover::after,.msg:hove
 <symbol id="send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
 <symbol id="mark" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></symbol>
 <symbol id="play" viewBox="0 0 24 24"><path d="M7 4v16l13-8Z"/></symbol>
+<symbol id="chl" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+<symbol id="chr" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
 </svg>
 
 <header><div class="wrap"><nav>
@@ -303,41 +327,68 @@ const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 const feed=document.getElementById('feed'),more=document.getElementById('more'),SHOW=8;
 const ico=n=>`<svg class="i" aria-hidden="true"><use href="#${n}"/></svg>`;
 
-/* Si la imagen del feed caduca: 1) intenta la miniatura directa de Instagram, 2) muestra una tarjeta de marca */
+/* Si la imagen caduca: 1) miniatura directa de Instagram (solo portada), 2) tarjeta de marca */
 function imgFail(i){const m=(i.dataset.p||'').match(/\/p\/([\w-]+)/);
- if(m&&!i.dataset.r){i.dataset.r=1;i.src=`https://www.instagram.com/p/${m[1]}/media/?size=l`;return}
- i.parentElement.classList.add('nf');i.remove()}
+ if(i.dataset.c&&m&&!i.dataset.r){i.dataset.r=1;i.src=`https://www.instagram.com/p/${m[1]}/media/?size=l`;return}
+ i.closest('.sl,.pic').classList.add('nf');i.remove()}
+const link=(t,u,x)=>`<a href="https://www.instagram.com/${u}${x}" target="_blank" rel="noopener">${t}</a>`;
+const fmt=t=>esc(t).replace(/(^|\s)#([\p{L}\p{N}_]+)/gu,(m,a,b)=>a+link('#'+b,'explore/tags/'+b,'/')).replace(/(^|\s)@([\w.]*\w)/g,(m,a,b)=>a+link('@'+b,b,'/'));
 
 function card(p,n){
  const date=p.date?p.date.toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'}):'';
- const img=p.img?`<img src="${esc(p.img)}" alt="${p.video?'Video':'Foto'} publicado por ${esc(p.by)}" loading="lazy" referrerpolicy="no-referrer" data-p="${esc(p.url)}" onerror="imgFail(this)">`:'';
- return `<article class="post" style="--n:${n%SHOW}"${n>=SHOW?' hidden':''}>
-<div class="ph"><div class="av"><img src="${AVATAR}" alt="" width="34" height="34" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'IF'}))"></div><div><b>dra.fdzr</b><small>${esc(p.by)}</small></div>${ico('ig')}</div>
-<a class="pic" href="${esc(p.url)}" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram">${img}${p.video?`<span class="badge">${ico('play')}Video</span>`:''}</a>
+ const im=(u,first)=>`<img src="${esc(u)}" alt="Publicación de dra.fdzr" loading="${n<SHOW&&first?'eager':'lazy'}"${first?' data-c="1"':''} data-p="${esc(p.url)}" referrerpolicy="no-referrer" onerror="imgFail(this)">`;
+ let media;
+ if(p.vid)media=`<div class="pic vid" data-v="${esc(p.vid)}">${p.cover?im(p.cover,1):''}<span class="badge">${ico('play')}Video</span><button class="pl" aria-label="Reproducir video"><i>${ico('play')}</i></button></div>`;
+ else if(p.slides.length>1)media=`<div class="pic car"><div class="trk" tabindex="0" aria-label="Carrusel de imágenes">${p.slides.map((u,k)=>`<div class="sl">${im(u,!k)}</div>`).join('')}</div><button class="nv pv" aria-label="Anterior">${ico('chl')}</button><button class="nv nx" aria-label="Siguiente">${ico('chr')}</button><span class="badge cnt">1/${p.slides.length}</span></div>`;
+ else media=`<a class="pic" href="${esc(p.url)}" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram">${p.slides[0]?im(p.slides[0],1):''}</a>`;
+ const long=p.cap.length>120||p.cap.split('\n').length>3;
+ return `<article class="post"${n>=SHOW?' hidden':''}>
+<div class="ph"><div class="av"><img src="${AVATAR}" alt="" width="34" height="34" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'IF'}))"></div><div><b>dra.fdzr</b><small>${p.date?`<time datetime="${p.date.toISOString()}">${date}</time>`:'Instagram'}</small></div>${ico('ig')}</div>
+${media}
 <div class="acts">${ico('heart')}${ico('send')}${ico('mark')}</div>
-<div class="pf"><p>${p.video?'Video':'Foto'} del ${esc(date)}</p><a href="${esc(p.url)}" target="_blank" rel="noopener">Ver en Instagram</a></div>
+<div class="pf">${p.cap?`<p class="cap">${fmt(p.cap)}</p>${long?'<button class="mr" type="button">Ver más</button>':''}`:''}<a href="${esc(p.url)}" target="_blank" rel="noopener">Ver en Instagram</a></div>
 </article>`;
 }
 
+const MRSS='http://search.yahoo.com/mrss/',base=u=>u.split('?')[0].split('/').pop(),MAXP=40,BATCH=8;
 async function load(){
  try{
   const res=await fetch(FEED);if(!res.ok)throw new Error(res.status);
   const xml=new DOMParser().parseFromString(await res.text(),'text/xml');
-  const posts=[...xml.querySelectorAll('item')].map(i=>{
+  const posts=[...xml.querySelectorAll('item')].slice(0,MAXP).map(i=>{
    const g=s=>i.querySelector(s)?.textContent||'';
-   const title=g('title'),link=g('link'),code=(link.match(/\/p\/([\w-]+)/)||[])[1];
    const doc=new DOMParser().parseFromString(g('description'),'text/html');
-   const m=title.match(/^(Photo|Video) by (.+?) on (\w+) (\d+), (\d+)/);
-   return{img:doc.querySelector('img')?.getAttribute('src'),video:m?.[1]==='Video',by:m?.[2]||'Dra. Ilse Fernández R.',
-    date:m?new Date(+m[5],MES[m[3]],+m[4]):null,url:code?`https://www.instagram.com/p/${code}/`:link};
+   const cover=i.getElementsByTagNameNS(MRSS,'thumbnail')[0]?.getAttribute('url')||doc.querySelector('img')?.getAttribute('src');
+   const mc=[...i.getElementsByTagNameNS(MRSS,'content')];
+   const vid=mc.find(c=>c.getAttribute('medium')==='video'||/^video/.test(c.getAttribute('type')||''))?.getAttribute('url');
+   const imgs=mc.filter(c=>c.getAttribute('medium')==='image').map(c=>c.getAttribute('url'));
+   const slides=vid?[]:[cover,...imgs].filter(Boolean).filter((u,k,a)=>a.findIndex(v=>base(v)===base(u))===k);
+   const d=new Date(g('pubDate'));
+   return{cover,vid,slides,cap:(doc.querySelector('p')?.textContent||g('title')).trim(),date:isNaN(d)?null:d,url:g('link')};
   });
   if(!posts.length)throw new Error('vacío');
   feed.innerHTML=posts.map(card).join('');
-  if(posts.length>SHOW){more.hidden=false;more.onclick=()=>{feed.querySelectorAll('.post[hidden]').forEach((el,k)=>{el.style.setProperty('--n',k%8);el.hidden=false});more.hidden=true}}
+  if(posts.length>SHOW){more.hidden=false;more.onclick=()=>{
+   const h=[...feed.querySelectorAll('.post[hidden]')];h.slice(0,BATCH).forEach(el=>el.hidden=false);if(h.length<=BATCH)more.hidden=true}}
  }catch(e){
   feed.innerHTML=`<p class="msg">No pudimos cargar las publicaciones en este momento. Puedes verlas directamente en <a href="${PROFILE}" target="_blank" rel="noopener">Instagram</a>.</p>`;
  }
 }
+/* Controles de las tarjetas: carrusel, video y descripción */
+feed.addEventListener('click',e=>{
+ const nv=e.target.closest('.nv');
+ if(nv){const t=nv.parentElement.querySelector('.trk');t.scrollBy({left:(nv.classList.contains('nx')?1:-1)*t.clientWidth,behavior:'smooth'});return}
+ const pl=e.target.closest('.pl');
+ if(pl){const box=pl.parentElement,v=document.createElement('video'),img=box.querySelector('img');
+  v.src=box.dataset.v;v.controls=true;v.autoplay=true;v.playsInline=true;if(img)v.poster=img.currentSrc||img.src;
+  v.onerror=()=>{v.remove();box.classList.remove('go');box.classList.add('vf')};
+  box.classList.add('go');box.append(v);v.play().catch(()=>{});return}
+ const mr=e.target.closest('.mr');
+ if(mr)mr.textContent=mr.previousElementSibling.classList.toggle('open')?'Ver menos':'Ver más';
+});
+feed.addEventListener('scroll',e=>{const t=e.target;if(t.classList&&t.classList.contains('trk'))t.parentElement.querySelector('.cnt').textContent=`${Math.round(t.scrollLeft/t.clientWidth)+1}/${t.children.length}`},true);
+feed.addEventListener('play',e=>feed.querySelectorAll('video').forEach(v=>v!==e.target&&v.pause()),true);
+
 load().then(()=>watch(feed));
 </script>
 </body>
