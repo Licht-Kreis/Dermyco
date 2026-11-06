@@ -29,12 +29,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F2F6F4;--ink:#0E2B2A;--muted:#4C6664;--teal:#1F7A72;--mint:#BFE6D8;--rose:#F0A3A8;--agar:#F8E3B8;--line:#D3E1DC;--white:#fff;--nav:rgb(255 255 255/.72);--on:#fff;--tealh:#17625b;--sk1:#E3ECE8;--sk2:#F4F8F6;--mapf:none;
+:root{--bg:#F2F6F4;--ink:#0E2B2A;--muted:#4C6664;--teal:#1F7A72;--mint:#BFE6D8;--rose:#F0A3A8;--agar:#F8E3B8;--line:#D3E1DC;--white:#fff;--nav:rgb(255 255 255/.72);--on:#fff;--tealh:#17625b;--sk1:#E3ECE8;--sk2:#F4F8F6;--mapf:none;--g1:rgb(255 255 255/.6);--g2:rgb(255 255 255/.2);--gb:rgb(255 255 255/.75);--gs:0 14px 34px -16px rgb(14 43 42/.45);--bg2:#CBE7DE;--gl:rgb(255 255 255/.95);--gt:rgb(31 122 114/.14);
 --display:"Bricolage Grotesque",system-ui,sans-serif;--body:"Figtree",system-ui,sans-serif;color-scheme:light}
-:root[data-theme=dark]{--bg:#0A1918;--ink:#E4F1EE;--muted:#9BB5B0;--teal:#4CC3B4;--mint:#14332F;--line:#1E3835;--white:#112624;--nav:rgb(10 25 24/.75);--on:#04201D;--tealh:#7DD8CC;--sk1:#132A28;--sk2:#1B3835;--mapf:invert(.9) hue-rotate(180deg) contrast(.9);color-scheme:dark}
+:root[data-theme=dark]{--bg:#0A1918;--ink:#E4F1EE;--muted:#9BB5B0;--teal:#4CC3B4;--mint:#14332F;--line:#1E3835;--white:#112624;--nav:rgb(10 25 24/.75);--on:#04201D;--tealh:#7DD8CC;--sk1:#132A28;--sk2:#1B3835;--mapf:invert(.9) hue-rotate(180deg) contrast(.9);--g1:rgb(255 255 255/.13);--g2:rgb(255 255 255/.03);--gb:rgb(255 255 255/.22);--gs:0 16px 36px -16px rgb(0 0 0/.8);--bg2:#0F3A36;--gl:rgb(255 255 255/.3);--gt:rgb(76 195 180/.2);color-scheme:dark}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+body{background:linear-gradient(180deg,var(--bg),var(--bg2)) fixed var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
 svg.i{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
@@ -120,6 +120,9 @@ section{padding-block:6rem 1rem}
 .pic{position:relative;aspect-ratio:1;background:linear-gradient(135deg,var(--mint),var(--agar));display:block;overflow:hidden}
 .pic img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
 .pic:hover img{transform:scale(1.04)}
+.pic.nf{display:grid;place-items:center;background:linear-gradient(135deg,var(--mint),var(--white))}
+.pic.nf::before{content:"";width:46%;aspect-ratio:1;border-radius:50%;background:url(https://raw.githubusercontent.com/Licht-Kreis/Dermyco/refs/heads/main/Branding/DermycoIcon_Alt.png) center/cover;box-shadow:0 14px 30px -14px rgb(14 43 42/.55)}
+.pic.nf::after{content:"Ver publicación en Instagram";position:absolute;inset:auto 0 1rem;text-align:center;font-size:.85rem;font-weight:600;color:var(--ink)}
 .badge{position:absolute;top:.7rem;right:.7rem;display:flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:rgb(14 43 42/.72);color:#fff;font-size:.78rem;font-weight:600;backdrop-filter:blur(6px)}
 .badge .i{width:.95rem;height:.95rem;fill:#fff}
 .acts{display:flex;gap:.9rem;padding:.8rem .9rem .3rem}
@@ -133,10 +136,34 @@ section{padding-block:6rem 1rem}
 .more{display:block;margin:2.5rem auto 0;cursor:pointer;font:600 1rem var(--body);background:none}
 footer{margin-top:6rem;padding-block:2.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.93rem}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* Fondo animado + cristal líquido */
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+nav,.btn.s,.tg,.post,.msg,.map{background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-backdrop-filter:blur(16px) saturate(1.8);backdrop-filter:blur(16px) saturate(1.8);border:1px solid var(--gb);box-shadow:inset 0 1px 0 var(--gb),inset 0 -1px 0 rgb(255 255 255/.08),inset 0 0 22px rgb(255 255 255/.1),var(--gs)}
+nav{position:relative}
+nav::before,.btn::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(115deg,rgb(255 255 255/.55),transparent 32%,transparent 70%,rgb(255 255 255/.18));opacity:.55;pointer-events:none;mix-blend-mode:overlay;z-index:-1}
+.btn{position:relative;overflow:hidden;-webkit-backdrop-filter:blur(12px) saturate(1.8);backdrop-filter:blur(12px) saturate(1.8)}
+.btn.s{border-color:var(--gb)}
+.btn.s:hover{background:linear-gradient(135deg,rgb(255 255 255/.8),var(--mint))}
+.btn.p{border:1px solid rgb(255 255 255/.45);background:linear-gradient(180deg,rgb(255 255 255/.34),rgb(255 255 255/0) 58%),color-mix(in srgb,var(--teal) 88%,transparent);box-shadow:inset 0 1px 0 rgb(255 255 255/.6),inset 0 -8px 16px rgb(0 0 0/.12),0 12px 26px -12px var(--teal)}
+.btn.p:hover{background:linear-gradient(180deg,rgb(255 255 255/.42),rgb(255 255 255/0) 58%),color-mix(in srgb,var(--tealh) 92%,transparent)}
+.post{box-shadow:inset 0 1px 0 var(--gb),var(--gs);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.post:hover{transform:translateY(-4px)}
+.lgr nav,.lgr .tg{-webkit-backdrop-filter:blur(7px) url(#lg) saturate(1.8);backdrop-filter:blur(7px) url(#lg) saturate(1.8)}
+@property --mx{syntax:"<length>";inherits:true;initial-value:50px}
+@property --my{syntax:"<length>";inherits:true;initial-value:50px}
+nav,.btn,.tg,.post,.msg{transition:--mx .18s ease-out,--my .18s ease-out,transform .3s cubic-bezier(.2,.8,.2,1),background .2s,color .2s}
+.tg,.post,.msg{position:relative}
+nav::after,.btn::after,.tg::after,.post::after,.msg::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;opacity:0;transition:opacity .3s;background:radial-gradient(circle 130px at var(--mx) var(--my),var(--gl),transparent 70%),radial-gradient(circle 250px at var(--mx) var(--my),var(--gt),transparent 70%)}
+nav:hover::after,.btn:hover::after,.tg:hover::after,.post:hover::after,.msg:hover::after{opacity:1}
+.post::after{z-index:1}
+.btn.p::after{background:radial-gradient(circle 110px at var(--mx) var(--my),rgb(255 255 255/.55),transparent 70%)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="lg" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".01 .035" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="16" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <symbol id="wa" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
 <symbol id="mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
@@ -208,6 +235,44 @@ const sync=()=>tg.setAttribute('aria-pressed',root.dataset.theme==='dark');sync(
 tg.onclick=()=>{const t=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=t;try{localStorage.setItem('theme',t)}catch(e){}sync()};
 mq.addEventListener('change',e=>{let v=null;try{v=localStorage.getItem('theme')}catch(x){}if(!v){root.dataset.theme=e.matches?'dark':'light';sync()}});
 
+/* Fondo estilo XMB: cintas ondulantes y partículas */
+if(/Chrome\//.test(navigator.userAgent)&&!/Firefox/.test(navigator.userAgent))root.classList.add('lgr');
+const bg=document.getElementById('bg'),bx=bg.getContext('2d'),still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const RB=[{y:.6,a:.1,s:.00034,k:1.3,h:.17,p:0},{y:.7,a:.08,s:-.00026,k:1.8,h:.22,p:2},{y:.5,a:.06,s:.0002,k:2.4,h:.13,p:4}];
+const PT=Array.from({length:46},()=>({x:Math.random(),y:Math.random(),r:.6+Math.random()*1.8,v:.00002+Math.random()*.00005,ph:Math.random()*6.28}));
+let BW,BH;
+function bsize(){const d=Math.min(devicePixelRatio||1,1.5);BW=innerWidth;BH=innerHeight;bg.width=BW*d;bg.height=BH*d;bx.setTransform(d,0,0,d,0,0)}
+function bdraw(t){
+ bx.clearRect(0,0,BW,BH);const dk=root.dataset.theme==='dark',sy=scrollY;
+ RB.forEach((b,i)=>{
+  const top=[],bot=[],q=t*b.s,off=BH*b.y-sy*.04*(i+1);
+  for(let x=-20;x<=BW+20;x+=14){
+   const u=x/BW,yt=off+Math.sin(u*b.k*5+q+b.p)*BH*.07+Math.sin(u*b.k*9-q*1.4)*BH*.03;
+   top.push([x,yt]);bot.push([x,yt+BH*b.h*(.45+.55*Math.sin(u*b.k*3.4+q*.8+b.p))]);
+  }
+  bx.beginPath();top.forEach(([x,y],j)=>j?bx.lineTo(x,y):bx.moveTo(x,y));
+  for(let j=bot.length-1;j>=0;j--)bx.lineTo(bot[j][0],bot[j][1]);bx.closePath();
+  const g=bx.createLinearGradient(0,0,BW,0),c=dk?'130,235,220':'255,255,255',A=b.a*(dk?.9:5);
+  g.addColorStop(0,`rgba(${c},0)`);g.addColorStop(.5,`rgba(${c},${A})`);g.addColorStop(1,`rgba(${c},0)`);
+  bx.fillStyle=g;bx.fill();
+  bx.beginPath();top.forEach(([x,y],j)=>j?bx.lineTo(x,y):bx.moveTo(x,y));
+  bx.lineWidth=1.2;bx.strokeStyle=dk?`rgba(255,255,255,${.1+b.a})`:`rgba(31,122,114,${.07+b.a*.6})`;bx.stroke();
+ });
+ for(const p of PT){
+  if(!still){p.y-=p.v*16;if(p.y<0)p.y=1}
+  bx.beginPath();bx.arc(p.x*BW,p.y*BH,p.r,0,7);
+  bx.fillStyle=dk?`rgba(255,255,255,${.25+.3*Math.sin(t/900+p.ph)**2})`:`rgba(31,122,114,${.15+.2*Math.sin(t/900+p.ph)**2})`;bx.fill();
+ }
+ if(!still)requestAnimationFrame(bdraw);
+}
+bsize();addEventListener('resize',()=>{bsize();if(still)bdraw(0)});bdraw(0);
+tg.addEventListener('click',()=>{if(still)bdraw(0)});
+
+/* Brillo que sigue al cursor sobre el cristal */
+const GL='nav,.btn,.tg,.post,.msg';
+function glow(ev){let t=ev.target.closest&&ev.target.closest(GL);while(t){const b=t.getBoundingClientRect();t.style.setProperty('--mx',ev.clientX-b.left+'px');t.style.setProperty('--my',ev.clientY-b.top+'px');t=t.parentElement&&t.parentElement.closest(GL)}}
+addEventListener('pointermove',glow,{passive:true});addEventListener('pointerdown',glow,{passive:true});
+
 /* Feed RSS de Instagram */
 const FEED='https://raw.githubusercontent.com/Licht-Kreis/AniList-RSS/refs/heads/main/Instagram%20Feeds/instagram-dra-fdzr.xml';
 const PROFILE='https://www.instagram.com/dra.fdzr/';
@@ -218,9 +283,14 @@ const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 const feed=document.getElementById('feed'),more=document.getElementById('more'),SHOW=8;
 const ico=n=>`<svg class="i" aria-hidden="true"><use href="#${n}"/></svg>`;
 
+/* Si la imagen del feed caduca: 1) intenta la miniatura directa de Instagram, 2) muestra una tarjeta de marca */
+function imgFail(i){const m=(i.dataset.p||'').match(/\/p\/([\w-]+)/);
+ if(m&&!i.dataset.r){i.dataset.r=1;i.src=`https://www.instagram.com/p/${m[1]}/media/?size=l`;return}
+ i.parentElement.classList.add('nf');i.remove()}
+
 function card(p,n){
  const date=p.date?p.date.toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'}):'';
- const img=p.img?`<img src="${esc(p.img)}" alt="${p.video?'Video':'Foto'} publicado por ${esc(p.by)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:'';
+ const img=p.img?`<img src="${esc(p.img)}" alt="${p.video?'Video':'Foto'} publicado por ${esc(p.by)}" loading="lazy" referrerpolicy="no-referrer" data-p="${esc(p.url)}" onerror="imgFail(this)">`:'';
  return `<article class="post" style="--n:${n%SHOW}"${n>=SHOW?' hidden':''}>
 <div class="ph"><div class="av"><img src="${AVATAR}" alt="" width="34" height="34" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'IF'}))"></div><div><b>dra.fdzr</b><small>${esc(p.by)}</small></div>${ico('ig')}</div>
 <a class="pic" href="${esc(p.url)}" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram">${img}${p.video?`<span class="badge">${ico('play')}Video</span>`:''}</a>
